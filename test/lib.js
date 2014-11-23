@@ -1,7 +1,6 @@
 // Load in dependencies
 var assert = require('assert');
 var expect = require('chai').expect;
-var suppose = require('suppose');
 var HexadecimalPractice = require('../');
 
 // Define test utilities
@@ -93,37 +92,5 @@ describe('A hexadecimal practice session', function () {
         expect(this.questions).to.have.length(2);
       });
     });
-  });
-});
-
-describe('A CLI practice session', function () {
-  before(function runCliSession (done) {
-    // Collect the output into a buffer
-    var output = '';
-    var saveStream = function (buff) {
-      output += buff;
-      // process.stdout.write(buff + '');
-    };
-
-    // Run our command with a fixed seed
-    var that = this;
-    suppose(__dirname + '/../bin/hexadecimal-practice', ['--seed', 'hello'])
-      .debug({write: saveStream})
-      .on(/8b \+ 70/).respond('FB\n')
-      .error(done)
-      .end(function (code) {
-        // Verify we exited properly, save the output, and callback
-        that.output = output;
-        assert.strictEqual(code, 0, 'Expected "hexadecimal-practice" to exit with 0. Left with "' + code + '"');
-        done();
-      });
-  });
-
-  it('prompts the user', function () {
-    expect(this.output).to.match(/\nWhat is the answer for: 8b \+ 70\?/);
-  });
-
-  it('allows the user to respond', function () {
-    expect(this.output).to.match(/8b \+ 70\?FB/);
   });
 });
