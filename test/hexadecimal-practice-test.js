@@ -102,7 +102,7 @@ describe('A CLI practice session', function () {
     var output = '';
     var saveStream = function (buff) {
       output += buff;
-      process.stdout.write(buff + '');
+      // process.stdout.write(buff + '');
     };
 
     // Run our command with a fixed seed
