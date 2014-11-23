@@ -16,8 +16,6 @@ var testUtils = {
           that.questions.push(question);
 
           // Generate an answer
-          console.log(that);
-          console.log('after');
           assert(that.responder,
             'Expected `that.responder` to exist for `prompt`. Please define it to answer questions');
           var answer = that.responder(question);
@@ -38,8 +36,6 @@ var testUtils = {
   askQuestion: function (responder) {
     before(function askQuestionFn (done) {
       // Save our responder and ask the quesiton
-      console.log('before');
-      console.log(this);
       this.responder = responder;
       this.practice.ask(done);
     });
@@ -56,12 +52,17 @@ describe('A hexadecimal practice session', function () {
 
   describe('when prompting for a set of numbers', function () {
     describe('when a valid answer is provided', function () {
-      testUtils.askQuestion(function respondWithGoodAnswer (question) {
-        console.log(question);
+      testUtils.askQuestion(function respondWithGoodAnswer (questionInfo) {
+        // Calculate decimal form
+        var a = parseInt(questionInfo.aStr, 16);
+        var b = parseInt(questionInfo.bStr, 16);
+
+        // Return the total
+        return (a + b).toString(16);
       });
 
       it('calls back', function () {
-        expect(this.questions).to.equal(1);
+        expect(this.questions).to.have.length(1);
       });
     });
 
