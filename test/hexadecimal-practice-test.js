@@ -98,7 +98,7 @@ describe('A hexadecimal practice session', function () {
 
 describe('A CLI practice session', function () {
   before(function runCliSession (done) {
-    suppose(__dirname + '/../bin/hexadecimal-practice')
+    suppose(__dirname + '/../bin/hexadecimal-practice', ['--seed', 'hello'])
       .debug(process.stdout)
       .on(/Project name/).respond('test-unlicense\n')
       .error(done)
