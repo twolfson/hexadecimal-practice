@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // Load in our dependencies
 var readline = require('readline');
-var chalk = require('chalk');
 var program = require('commander');
 var pkg = require('../package.json');
 var HexadecimalPractice = require('../');
@@ -26,7 +25,6 @@ var practice = new HexadecimalPractice({
   maximumDigits: program.maximumDigits,
   prompt: function handlePrompt (questionInfo, done) {
     // Ask the question
-    // var question = 'What is the answer for: ' + chalk.bold(questionInfo.aStr + ' + ' + questionInfo.bStr) + ' ?';
     var question = 'What is the answer for: ' + questionInfo.aStr + ' + ' + questionInfo.bStr + '? ';
     rl.question(question, function handleAnswer (answer) {
       done(null, answer);

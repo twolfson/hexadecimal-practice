@@ -31,7 +31,6 @@
     "test": "npm run lint && mocha --reporter dot"
   },
   "dependencies": {
-    "chalk": "~0.5.1",
     "commander": "~2.5.0",
     "seedrandom": "~2.3.10"
   },
