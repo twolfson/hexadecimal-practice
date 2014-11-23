@@ -9,7 +9,8 @@ var HexadecimalPractice = require('../');
 // Define our CLI
 program
   .version(pkg.version)
-  .option('--seed <seed>', 'Specify a seed to use for number generation');
+  .option('--seed <seed>', 'Specify a seed to use for number generation')
+  .option('--maximum-digits <digits>', 'Specify the maximum amount of digits to use (hexadecimal base)');
 program.name = 'hexadecimal-practice';
 
 // Process the arguments
@@ -22,6 +23,7 @@ var rl = readline.createInterface({
 });
 var practice = new HexadecimalPractice({
   seed: program.seed,
+  maximumDigits: program.maximumDigits,
   prompt: function handlePrompt (questionInfo, done) {
     // Ask the question
     var question = 'What is the answer for: ' + chalk.bold(questionInfo.aStr + ' + ' + questionInfo.bStr) + '?';

@@ -58,3 +58,17 @@ describe('A CLI practice session', function () {
     expect(this.output).to.match(/8b \+ 70\?FB/);
   });
 });
+
+describe('A CLI practice session with high digits', function () {
+  testUtils.run({
+    cmd: __dirname + '/../bin/hexadecimal-practice',
+    args: ['--seed', 'hello', '--maximum-digits', '3'],
+    responses: [
+      [/8bd \+ 709/, 'FC6\n']
+    ]
+  });
+
+  it('prompts the user with high digits', function () {
+    expect(this.output).to.match(/\nWhat is the answer for: 8bd \+ 709\?/);
+  });
+});
