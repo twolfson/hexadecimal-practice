@@ -22,7 +22,7 @@ var testUtils = {
       var _suppose = suppose(params.cmd, params.args)
         .debug({write: saveStream});
       params.responses.forEach(function addResponse (responseObj) {
-        _suppose.on(responseObj[0], responseObj[1]);
+        _suppose.on(responseObj[0]).respond(responseObj[1]);
       });
       _suppose
         .error(done)
