@@ -16,6 +16,8 @@ var testUtils = {
           that.questions.push(question);
 
           // Generate an answer
+          console.log(that);
+          console.log('after');
           assert(that.responder,
             'Expected `that.responder` to exist for `prompt`. Please define it to answer questions');
           var answer = that.responder(question);
@@ -36,6 +38,8 @@ var testUtils = {
   askQuestion: function (responder) {
     before(function askQuestionFn (done) {
       // Save our responder and ask the quesiton
+      console.log('before');
+      console.log(this);
       this.responder = responder;
       this.practice.ask(done);
     });
