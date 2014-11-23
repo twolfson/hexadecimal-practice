@@ -100,9 +100,10 @@ describe('A CLI practice session', function () {
   before(function runCliSession (done) {
     suppose(__dirname + '/../bin/hexadecimal-practice', ['--seed', 'hello'])
       .debug(process.stdout)
-      .on(/Project name/).respond('test-unlicense\n')
+      .on(/8b \+ 70/).respond('FB\n')
       .error(done)
       .end(function (code) {
+        console.log('exit', code);
         assert.strictEqual(code, 0, 'Expected "hexadecimal-practice" to exit with 0. Left with "' + code + '"');
         done();
       });
