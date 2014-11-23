@@ -63,7 +63,7 @@ describe('A hexadecimal practice session', function () {
 
     describe.skip('when an invalid answer is provided', function () {
       it('prompts again', function () {
-
+        // TODO: Test me
       });
     });
   });
@@ -71,11 +71,11 @@ describe('A hexadecimal practice session', function () {
 
 describe.skip('A CLI practice session', function () {
   it('prompts the user', function () {
-
+    // TODO: Test me
   });
 
   it('allows the user to respond', function () {
-
+    // TODO: Test me
   });
 
   it('can be terminated', function () {
