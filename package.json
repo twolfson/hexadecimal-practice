@@ -30,7 +30,9 @@
     "pretest": "twolfson-style install",
     "test": "npm run lint && mocha --reporter dot"
   },
-  "dependencies": {},
+  "dependencies": {
+    "zpad": "~0.5.0"
+  },
   "devDependencies": {
     "chai": "~1.10.0",
     "jscs": "~1.7.3",
