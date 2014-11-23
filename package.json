@@ -33,6 +33,7 @@
   "dependencies": {
     "chalk": "~0.5.1",
     "commander": "~2.5.0",
+    "prompt-input": "0.0.1",
     "seedrandom": "~2.3.10"
   },
   "devDependencies": {
