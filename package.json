@@ -21,6 +21,9 @@
       "url": "https://github.com/twolfson/hexadecimal-practice/blob/master/UNLICENSE"
     }
   ],
+  "bin": {
+    "hexadecimal-practice": "bin/hexadecimal-practice"
+  },
   "main": "lib/hexadecimal-practice",
   "engines": {
     "node": ">= 0.8.0"
