@@ -26,7 +26,8 @@ var practice = new HexadecimalPractice({
   maximumDigits: program.maximumDigits,
   prompt: function handlePrompt (questionInfo, done) {
     // Ask the question
-    var question = 'What is the answer for: ' + chalk.bold(questionInfo.aStr + ' + ' + questionInfo.bStr) + '?';
+    // var question = 'What is the answer for: ' + chalk.bold(questionInfo.aStr + ' + ' + questionInfo.bStr) + ' ?';
+    var question = 'What is the answer for: ' + questionInfo.aStr + ' + ' + questionInfo.bStr + '? ';
     rl.question(question, function handleAnswer (answer) {
       done(null, answer);
     });
