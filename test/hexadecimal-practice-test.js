@@ -1,6 +1,7 @@
 // Load in dependencies
 var assert = require('assert');
 var expect = require('chai').expect;
+var suppose = require('suppose');
 var HexadecimalPractice = require('../');
 
 // Define test utilities
@@ -95,16 +96,27 @@ describe('A hexadecimal practice session', function () {
   });
 });
 
-describe.skip('A CLI practice session', function () {
+describe('A CLI practice session', function () {
+  before(function runCliSession (done) {
+    suppose(__dirname + '/../bin/hexadecimal-practice')
+      .debug(process.stdout)
+      .on(/Project name/).respond('test-unlicense\n')
+      .error(done)
+      .end(function (code) {
+        assert.strictEqual(code, 0, 'Expected "hexadecimal-practice" to exit with 0. Left with "' + code + '"');
+        done();
+      });
+  });
+
   it('prompts the user', function () {
     // TODO: Test me
   });
 
-  it('allows the user to respond', function () {
+  it.skip('allows the user to respond', function () {
     // TODO: Test me
   });
 
-  it('can be terminated', function () {
+  it.skip('can be terminated', function () {
     // Ctrl+C
   });
 });
