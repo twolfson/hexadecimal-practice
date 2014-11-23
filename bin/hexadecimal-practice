@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 // Load in our dependencies
+var readline = require('readline');
+var chalk = require('chalk');
 var program = require('commander');
 var pkg = require('../package.json');
 var HexadecimalPractice = require('../');
@@ -13,4 +15,18 @@ program.name = 'hexadecimal-practice';
 // Process the arguments
 program.parse(process.argv);
 
-console.log(program);
+// Start asking some questions
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+var practice = new HexadecimalPractice({
+  seed: program.seed,
+  prompt: function handlePrompt (questionInfo, done) {
+    // Ask the question
+    rl.question('What is the answer for: ' + chalk.bold(questionInfo.strA + ' + ' + questionInfo.strB) + '?', function handleAnswer (answer) {
+      done(null, answer);
+    });
+  }
+});
+practice.ask();
