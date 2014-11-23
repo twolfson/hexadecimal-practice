@@ -1,7 +1,7 @@
 {
   "name": "hexadecimal-practice",
   "description": "CLI application for practicing hexadecimal math (e.g. addition)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/twolfson/hexadecimal-practice",
   "author": {
     "name": "Todd Wolfson",
