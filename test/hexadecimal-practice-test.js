@@ -48,10 +48,9 @@ var testUtils = {
 
 // Start our tests
 describe('A hexadecimal practice session', function () {
-  testUtils.createSession();
-
   describe('when prompting for a set of numbers', function () {
     describe('when a valid answer is provided', function () {
+      testUtils.createSession();
       testUtils.askQuestion(function respondWithGoodAnswer (questionInfo) {
         // Calculate decimal form
         var a = parseInt(questionInfo.aStr, 16);
@@ -66,9 +65,26 @@ describe('A hexadecimal practice session', function () {
       });
     });
 
-    describe.skip('when an invalid answer is provided', function () {
+    describe('when an invalid answer is provided', function () {
+      var firstRun = true;
+      testUtils.createSession();
+      testUtils.askQuestion(function respondWithBadAnswer (questionInfo) {
+        // Calculate decimal form
+        var a = parseInt(questionInfo.aStr, 16);
+        var b = parseInt(questionInfo.bStr, 16);
+
+        // If we are on the first run, respond with the wrong answer
+        if (firstRun) {
+          firstRun = false;
+          return (a + b + 1).toString(16);
+        // Otherwise, return the total
+        } else {
+          return (a + b).toString(16);
+        }
+      });
+
       it('prompts again', function () {
-        // TODO: Test me
+        expect(this.questions).to.have.length(2);
       });
     });
   });
