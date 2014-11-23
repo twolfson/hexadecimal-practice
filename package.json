@@ -1,0 +1,47 @@
+{
+  "name": "hexadecimal-practice",
+  "description": "CLI application for practicing hexadecimal math (e.g. addition)",
+  "version": "1.0.0",
+  "homepage": "https://github.com/twolfson/hexadecimal-practice",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twolfson/hexadecimal-practice.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twolfson/hexadecimal-practice/issues"
+  },
+  "licenses": [
+    {
+      "type": "UNLICENSE",
+      "url": "https://github.com/twolfson/hexadecimal-practice/blob/master/UNLICENSE"
+    }
+  ],
+  "main": "lib/hexadecimal-practice",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "lint": "jshint lib/ test/ && jscs lib/ test/",
+    "pretest": "twolfson-style install",
+    "test": "npm run lint && mocha --reporter dot"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jscs": "~1.7.3",
+    "jshint": "~2.5.10",
+    "mocha": "~2.0.1",
+    "twolfson-style": "~1.0.0"
+  },
+  "keywords": [
+    "hexadecimal",
+    "math",
+    "add",
+    "addition",
+    "practice"
+  ]
+}
