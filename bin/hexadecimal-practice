@@ -24,7 +24,8 @@ var practice = new HexadecimalPractice({
   seed: program.seed,
   prompt: function handlePrompt (questionInfo, done) {
     // Ask the question
-    rl.question('What is the answer for: ' + chalk.bold(questionInfo.aStr + ' + ' + questionInfo.bStr) + '?', function handleAnswer (answer) {
+    var question = 'What is the answer for: ' + chalk.bold(questionInfo.aStr + ' + ' + questionInfo.bStr) + '?';
+    rl.question(question, function handleAnswer (answer) {
       done(null, answer);
     });
   }
