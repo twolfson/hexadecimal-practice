@@ -13,10 +13,11 @@ var testUtils = {
       this.practice = new HexadecimalPractice({
         prompt: function (question, done) {
           // When a question is asked, save it
-          that.questions.push(questions);
+          that.questions.push(question);
 
           // Generate an answer
-          assert(that.responder, 'Expected `that.responder` to exist for `prompt`. Please define it to answer questions');
+          assert(that.responder,
+            'Expected `that.responder` to exist for `prompt`. Please define it to answer questions');
           var answer = that.responder(question);
 
           // Respond with the answer
@@ -47,11 +48,11 @@ var testUtils = {
 
 // Start our tests
 describe('A hexadecimal practice session', function () {
-  this.createSession();
+  testUtils.createSession();
 
   describe('when prompting for a set of numbers', function () {
     describe('when a valid answer is provided', function () {
-      this.askQuestion(function respondWithGoodAnswer (question) {
+      testUtils.askQuestion(function respondWithGoodAnswer (question) {
         console.log(question);
       });
 
