@@ -55,7 +55,7 @@ describe('A CLI practice session', function () {
   });
 
   it('allows the user to respond', function () {
-    expect(this.output).to.match(/8b \+ 70\?FB/);
+    expect(this.output).to.match(/8b \+ 70\? FB/);
   });
 });
 
