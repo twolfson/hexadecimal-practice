@@ -63,6 +63,11 @@ describe('A hexadecimal practice session', function () {
       it('calls back', function () {
         expect(this.questions).to.have.length(1);
       });
+
+      it('asks for 2 hexadecimal numbers between 00 and FF', function () {
+        expect(this.questions[0].aStr).to.match(/^[0-9a-f]{2}$/);
+        expect(this.questions[0].bStr).to.match(/^[0-9a-f]{2}$/);
+      });
     });
 
     describe('when an invalid answer is provided', function () {
