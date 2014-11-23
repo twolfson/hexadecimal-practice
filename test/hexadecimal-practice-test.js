@@ -26,15 +26,37 @@ var testUtils = {
         }
       });
     });
+    after(function cleanup () {
+      // Clean up our questions and session
+      delete this.questions;
+      delete this.practice;
+    });
+  },
+  askQuestion: function (responder) {
+    before(function askQuestionFn (done) {
+      // Save our responder and ask the quesiton
+      this.responder = responder;
+      this.practice.ask(done);
+    });
+    after(function cleanup () {
+      // Clean up our responder
+      delete this.responder;
+    });
   }
 };
 
 // Start our tests
 describe('A hexadecimal practice session', function () {
+  this.createSession();
+
   describe('when prompting for a set of numbers', function () {
     describe('when a valid answer is provided', function () {
-      it('calls back', function () {
+      this.askQuestion(function respondWithGoodAnswer (question) {
+        console.log(question);
+      });
 
+      it('calls back', function () {
+        expect(this.questions).to.equal(1);
       });
     });
 
